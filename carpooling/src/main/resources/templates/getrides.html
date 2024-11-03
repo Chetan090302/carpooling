@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Enter Source and Destination</title>
+</head>
+<body>
+<h1>Enter Your Travel Details</h1>
+<form th:action="@{/publish/get}" method="GET">
+  <label for="source">Source:</label>
+  <input type="text" id="source" name="source" required><br><br>
+
+  <label for="destination">Destination:</label>
+  <input type="text" id="destination" name="destination" required><br><br>
+
+  <button type="submit">Submit</button>
+</form>
+</body>
+</html>

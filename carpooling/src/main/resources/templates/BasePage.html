@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Publish Page</title>
+  <style>
+        /* Simple styling for buttons */
+        .btn {
+            margin: 5px;
+            padding: 10px 15px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<h1>Publish Details</h1>
+
+<div>
+  <a href="/publish/getAll" class="btn">Get All Rides</a>
+  <a href="/publish/getrides" class="btn">Filter Rides Page</a>
+  <a href="/publish/page" class="btn">Publish Ride Page</a>
+</div>
+
+<div th:each="publish : ${publishList}">
+  <h2>Details for Email: <span th:text="${publish.email}"></span></h2>
+  <p><strong>Date:</strong> <span th:text="${#dates.format(publish.date, 'yyyy-MM-dd')}"></span></p>
+  <p><strong>Locations:</strong></p>
+  <ul>
+    <li th:each="location : ${publish.locations}" th:text="${location}"></li>
+  </ul>
+  <p><strong>Amount:</strong> <span th:text="${publish.amount}"></span></p>
+  <p><strong>Message:</strong> <span th:text="${publish.message}"></span></p>
+  <p><strong>Seats:</strong> <span th:text="${publish.seats}"></span></p>
+  <hr/>
+</div>
+
+</body>
+</html>

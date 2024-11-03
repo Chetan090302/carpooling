@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Post Ride</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: auto;
+        }
+
+        label {
+            font-weight: bold;
+            margin: 10px 0 5px;
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="date"]:focus,
+        input[type="number"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 600px) {
+            form {
+                padding: 15px;
+            }
+
+            button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+<h1>Post a Ride</h1>
+<form action="#" th:action="@{/publish/postride}" th:object="${publish}" method="post">
+    <label for="email">Email:</label>
+    <input type="text" th:field="*{email}" />
+
+    <label for="date">Date:</label>
+    <input type="date" th:field="*{date}" />
+
+    <label for="locations">Locations:</label>
+    <input type="text" th:field="*{locations}" />
+
+    <label for="amount">Amount:</label>
+    <input type="number" th:field="*{amount}" />
+
+    <label for="message">Message:</label>
+    <input type="text" th:field="*{message}" />
+
+    <label for="seats">Seats:</label>
+    <input type="number" th:field="*{seats}" />
+
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>
